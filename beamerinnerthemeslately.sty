@@ -1,0 +1,63 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \fill[color=SlatelyBG] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+  
+  % Bottom Bars
+  \fill[color=SlatelyAccentBar] (0,0.7) rectangle(11, 0.9);
+  \fill[color=SlatelyMainBar] (2,0.5) rectangle(13, 0.3);
+
+  \fill[color=SlatelyMainBar] (11.2,0.7) rectangle(13, 0.9);
+  \fill[color=SlatelyAccentBar] (0,0.5) rectangle(1.8, 0.3);
+  
+  % Side Bars
+  \fill[color=SlatelyAccentBar] (2,6.5) rectangle(2.2, 3);
+  \fill[color=SlatelyMainBar] (2,7.2) rectangle(2.2, 6.7);
+  \fill[color=SlatelyMainBar] (2,2.8) rectangle(2.2, 2.3);
+
+%%%%%%% REGULAR PAGES
+  \ifnum\thepage>1\relax%    
+   \fill[SlatelyBG,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fill[color=SlatelyAccentBar] (0,0.7) rectangle(11, 0.9);
+\fill[color=SlatelyMainBar] (11.2,0.7) rectangle(13, 0.9);
+
+	\draw node[] at (12,0.3) {\sffamily \scriptsize
+    \thepage/\pageref{LastPage}};
+	\draw node[] at (1,0.3) {\sffamily \scriptsize
+    \insertshortauthor};
+    
+    \draw node[] at (6,0.3) {\textcolor{SlatelyAccentText}{\sffamily \scriptsize
+    \inserttitle}};
+    
+   \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{slately}[1][]
+{ 
+   
+   \vskip1.7cm%
+    \begin{beamercolorbox}[leftskip=1.6cm]{title page header}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[leftskip=1.6cm]{subtitle page header}
+      \usebeamerfont{subtitle}\insertsubtitle\par      
+    \end{beamercolorbox}%
+    
+    \vskip2.3cm%
+    \begin{beamercolorbox}[leftskip=1.62cm]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+    
+     \vskip0.5cm% 
+    \begin{beamercolorbox}[center]{date}
+      \usebeamerfont{date}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+\mode
+<all>
